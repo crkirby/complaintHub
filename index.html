@@ -21,6 +21,36 @@
 <div class="container">
   <h1>Complaints<small>by touchpass</small></h1>
   <p>This is some text.</p> 
+
+  <div class="jumbotron">
+  	<h3>File a new complaint:</h3>
+  		<form id="complaintInputForm">
+
+  			<div class="form-group">
+	  			<label for="complaintDescInput">Decription</label>
+	  			<input type="text" class="form-control" id="complaintDescInput" placeholder="Describe the trouble you're having..."/>
+	  		</div>
+
+	  		<div class="form-group">
+	  			<label for="complaintSeverityInput">Severity</label>
+	  			<select id="complaintSeverityInput" class="form-control">
+	  				<option value="Low">Low</option>
+	  				<option value="Medium">Medium</option>
+	  				<option value="High">High</option>
+	  			</select>	
+	  		</div>
+
+	  		<div class="form-group">
+	  			<label for="complaintAssignToInput">Assigned To</label>
+	  			<input type="text" class="form-control" id="complaintAssignToInput" placeholder="Enter responsible..."/>
+	  		</div>
+
+	  		<button type="submit" class="btn btn-primary">Add</button>
+  		</form>
+  </div>
+
+  
+
 </div>
 
 
