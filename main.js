@@ -1,3 +1,4 @@
+//localStorage.clear();
 document.getElementById("complaintInputForm").addEventListener("submit", saveComplaint);
 
 function saveComplaint(e){
@@ -32,6 +33,23 @@ function saveComplaint(e){
 	e.preventDefault();
 }
 
+
+
+function setStatusClosed (id) {
+	
+	var complaints = JSON.parse(localStorage.getItem('complaints'));
+	for (var i = 0; i < complaints.length; i++) {
+		if(complaints[i].id==id){
+			complaints[i].status = 'Closed';
+		}
+	}
+
+	localStorage.setItem('complaints', JSON.stringify(complaints));	
+	fetchComplaints();
+	
+	
+}
+
 //local storage
 function fetchComplaints () { 
 	var complaints = JSON.parse(localStorage.getItem('complaints'));
@@ -51,7 +69,8 @@ function fetchComplaints () {
 								    '<p><span class="glyphicon glyphicon-time"></span>'+ severity +'</p>' +
 								    '<p><span class="glyphicon glyphicon-user"></span>'+ assignedTo +'</p>' +
 								    '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+ id +'\')">Close</a>'+
-								    '<a href="#" class="btn btn-danger" onclick="deleteIssue(\''+ id +'\')">Delete</a>'+
+								    ' <a href="#" class="btn btn-danger" onclick="deleteIssue(\''+ id +'\')">Delete</a>'+
 								    '</div>';
 		}
 }
+
