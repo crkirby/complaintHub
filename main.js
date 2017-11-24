@@ -36,7 +36,6 @@ function saveComplaint(e){
 
 
 function setStatusClosed (id) {
-	
 	var complaints = JSON.parse(localStorage.getItem('complaints'));
 	for (var i = 0; i < complaints.length; i++) {
 		if(complaints[i].id==id){
@@ -46,8 +45,18 @@ function setStatusClosed (id) {
 
 	localStorage.setItem('complaints', JSON.stringify(complaints));	
 	fetchComplaints();
-	
-	
+}
+
+function deleteComplaint (id) {
+	var complaints = JSON.parse(localStorage.getItem('complaints'));
+	for (var i = 0; i < complaints.length; i++) {
+		if(complaints[i].id==id){
+			complaints.splice(i,1);
+		}
+	}
+
+	localStorage.setItem('complaints', JSON.stringify(complaints));	
+	fetchComplaints();
 }
 
 //local storage
@@ -69,7 +78,7 @@ function fetchComplaints () {
 								    '<p><span class="glyphicon glyphicon-time"></span>'+ severity +'</p>' +
 								    '<p><span class="glyphicon glyphicon-user"></span>'+ assignedTo +'</p>' +
 								    '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+ id +'\')">Close</a>'+
-								    ' <a href="#" class="btn btn-danger" onclick="deleteIssue(\''+ id +'\')">Delete</a>'+
+								    ' <a href="#" class="btn btn-danger" onclick="deleteComplaint(\''+ id +'\')">Delete</a>'+
 								    '</div>';
 		}
 }
